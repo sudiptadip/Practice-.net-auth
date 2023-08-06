@@ -1,0 +1,46 @@
+﻿@using auth.Data;
+@model MovieDetail
+
+<div>
+    @if (Model != null)
+    {
+        <h1 class="text-center">Edit Movie</h1>
+    }
+    else
+    {
+        <h1 class="text-center">Add a New Movie</h1>
+    }
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <form method="post">
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Name</label>
+                    <input asp-for="MovieName" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <span asp-validation-for="MovieName" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Description</label>
+                    <input asp-for="Description" type="text" class="form-control" id="exampleInputPassword1">
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Url</label>
+                    <input asp-for="Url" type="text" class="form-control" id="exampleInputPassword1">
+                    <span asp-validation-for="Url" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Rating</label>
+                    <input asp-for="Rating" type="number" class="form-control" id="exampleInputPassword1">
+                    <span asp-validation-for="Rating" class="text-danger"></span>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

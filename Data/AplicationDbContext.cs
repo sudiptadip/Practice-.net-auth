@@ -1,9 +1,10 @@
 ﻿using auth.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace auth.Data
 {
-    public class AplicationDbContext : DbContext
+    public class AplicationDbContext : IdentityDbContext
     {
         public AplicationDbContext(DbContextOptions<AplicationDbContext> options) : base(options)
         {
@@ -11,6 +12,7 @@ namespace auth.Data
         }
 
         public DbSet<MovieDetail> MovieDetail { get; set; }
+        public DbSet<ApplicationUsers> ApplicationUser { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
